@@ -36,3 +36,7 @@ end
 
 loadingLabel.Text = "Loading Scripts!"
 loadingBar.Size = UDim2.new(1, 0, 1, 0)
+
+wait(1) -- Attendi 1 secondo per mostrare il messaggio finale
+
+screenGui:Destroy() -- Rimuovi la GUI
