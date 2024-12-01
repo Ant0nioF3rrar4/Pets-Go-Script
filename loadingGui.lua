@@ -60,32 +60,50 @@ titleLabel.TextScaled = true
 titleLabel.Text = "Speed Hub X | Version: 4.0.4"
 titleLabel.Parent = mainFrame
 
-local homeLabel = Instance.new("TextLabel")
-homeLabel.Size = UDim2.new(1, 0, 0.1, 0)
-homeLabel.Position = UDim2.new(0, 0, 0.1, 0)
-homeLabel.BackgroundTransparency = 1
-homeLabel.TextColor3 = Color3.new(1, 1, 1)
-homeLabel.TextScaled = true
-homeLabel.Text = "Home"
-homeLabel.Parent = mainFrame
+local function createSection(parent, position, text)
+    local sectionLabel = Instance.new("TextLabel")
+    sectionLabel.Size = UDim2.new(1, 0, 0.1, 0)
+    sectionLabel.Position = position
+    sectionLabel.BackgroundTransparency = 1
+    sectionLabel.TextColor3 = Color3.new(1, 1, 1)
+    sectionLabel.TextScaled = true
+    sectionLabel.Text = text
+    sectionLabel.Parent = parent
+    return sectionLabel
+end
 
--- Aggiungi le altre sezioni come desiderato
-local discordLabel = Instance.new("TextLabel")
-discordLabel.Size = UDim2.new(1, 0, 0.1, 0)
-discordLabel.Position = UDim2.new(0, 0, 0.2, 0)
-discordLabel.BackgroundTransparency = 1
-discordLabel.TextColor3 = Color3.new(1, 1, 1)
-discordLabel.TextScaled = true
-discordLabel.Text = "Discord"
-discordLabel.Parent = mainFrame
+createSection(mainFrame, UDim2.new(0, 0, 0.1, 0), "Home")
+createSection(mainFrame, UDim2.new(0, 0, 0.2, 0), "Main")
+createSection(mainFrame, UDim2.new(0, 0, 0.3, 0), "Item")
+createSection(mainFrame, UDim2.new(0, 0, 0.4, 0), "Webhook")
+createSection(mainFrame, UDim2.new(0, 0, 0.5, 0), "Miscellaneous")
+createSection(mainFrame, UDim2.new(0, 0, 0.6, 0), "Settings")
 
-local localPlayerLabel = Instance.new("TextLabel")
-localPlayerLabel.Size = UDim2.new(1, 0, 0.1, 0)
-localPlayerLabel.Position = UDim2.new(0, 0, 0.3, 0)
-localPlayerLabel.BackgroundTransparency = 1
-localPlayerLabel.TextColor3 = Color3.new(1, 1, 1)
-localPlayerLabel.TextScaled = true
-localPlayerLabel.Text = "LocalPlayer"
-localPlayerLabel.Parent = mainFrame
+-- Aggiungi altre sezioni e pulsanti come desiderato
+local function createButton(parent, position, text)
+    local button = Instance.new("TextButton")
+    button.Size = UDim2.new(0.8, 0, 0.1, 0)
+    button.Position = position
+    button.BackgroundTransparency = 0.5
+    button.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+    button.TextColor3 = Color3.new(1, 1, 1)
+    button.TextScaled = true
+    button.Text = text
+    button.Parent = parent
+    return button
+end
 
--- Continua ad aggiungere le altre sezioni come nella schermata fornita
+local discordButton = createButton(mainFrame, UDim2.new(0.1, 0, 0.7, 0), "Discord Invite")
+discordButton.MouseButton1Click:Connect(function()
+    setclipboard("https://discord.gg/inviteLink") -- Sostituisci con il link reale
+end)
+
+local infiniteJumpToggle = createButton(mainFrame, UDim2.new(0.1, 0, 0.8, 0), "Toggle Infinite Jump")
+infiniteJumpToggle.MouseButton1Click:Connect(function()
+    -- Aggiungi qui il codice per abilitare/disabilitare il salto infinito
+end)
+
+local ctrlTeleportToggle = createButton(mainFrame, UDim2.new(0.1, 0, 0.9, 0), "CTRL + Click to Teleport")
+ctrlTeleportToggle.MouseButton1Click:Connect(function()
+    -- Aggiungi qui il codice per abilitare/disabilitare il teletrasporto
+end)
