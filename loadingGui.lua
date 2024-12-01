@@ -39,4 +39,53 @@ loadingBar.Size = UDim2.new(1, 0, 1, 0)
 
 wait(1) -- Attendi 1 secondo per mostrare il messaggio finale
 
-screenGui:Destroy() -- Rimuovi la GUI
+screenGui:Destroy() -- Rimuovi la GUI di caricamento
+
+-- Crea la nuova GUI
+local newScreenGui = Instance.new("ScreenGui")
+newScreenGui.Parent = PlayerGui
+
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0.5, 0, 0.5, 0)
+mainFrame.Position = UDim2.new(0.25, 0, 0.25, 0)
+mainFrame.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+mainFrame.Parent = newScreenGui
+
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(1, 0, 0.1, 0)
+titleLabel.Position = UDim2.new(0, 0, 0, 0)
+titleLabel.BackgroundTransparency = 1
+titleLabel.TextColor3 = Color3.new(1, 1, 1)
+titleLabel.TextScaled = true
+titleLabel.Text = "Speed Hub X | Version: 4.0.4"
+titleLabel.Parent = mainFrame
+
+local homeLabel = Instance.new("TextLabel")
+homeLabel.Size = UDim2.new(1, 0, 0.1, 0)
+homeLabel.Position = UDim2.new(0, 0, 0.1, 0)
+homeLabel.BackgroundTransparency = 1
+homeLabel.TextColor3 = Color3.new(1, 1, 1)
+homeLabel.TextScaled = true
+homeLabel.Text = "Home"
+homeLabel.Parent = mainFrame
+
+-- Aggiungi le altre sezioni come desiderato
+local discordLabel = Instance.new("TextLabel")
+discordLabel.Size = UDim2.new(1, 0, 0.1, 0)
+discordLabel.Position = UDim2.new(0, 0, 0.2, 0)
+discordLabel.BackgroundTransparency = 1
+discordLabel.TextColor3 = Color3.new(1, 1, 1)
+discordLabel.TextScaled = true
+discordLabel.Text = "Discord"
+discordLabel.Parent = mainFrame
+
+local localPlayerLabel = Instance.new("TextLabel")
+localPlayerLabel.Size = UDim2.new(1, 0, 0.1, 0)
+localPlayerLabel.Position = UDim2.new(0, 0, 0.3, 0)
+localPlayerLabel.BackgroundTransparency = 1
+localPlayerLabel.TextColor3 = Color3.new(1, 1, 1)
+localPlayerLabel.TextScaled = true
+localPlayerLabel.Text = "LocalPlayer"
+localPlayerLabel.Parent = mainFrame
+
+-- Continua ad aggiungere le altre sezioni come nella schermata fornita
